@@ -1,3 +1,4 @@
+
 export class Converter {
     public toDecimal(base: number, number: string | number) {
         let num = number.toString().split('').reverse();
@@ -18,7 +19,7 @@ export class Converter {
         }
 
         for (let i = 0; i < num.length; i++) {
-            decimalNumber += Number(num[i]) || Number(hexLetters[num[i]]) * base ** i
+            decimalNumber += hexLetters[num[i]] ? Number(hexLetters[num[i]]) * base ** i : Number(num[i]) * base ** i;
         }
         return decimalNumber;
     }
@@ -71,7 +72,7 @@ export class Converter {
         }
 
         for (let i = 0; i < num.length; i++) {
-            decimalNumber += !Number(num[i]) ? hexLetters2[num[i]] * baseOfNumber ** i : Number(num[i]) * baseOfNumber ** i;
+            decimalNumber += hexLetters2[num[i]] ? hexLetters2[num[i]] * baseOfNumber ** i : Number(num[i]) * baseOfNumber ** i;
         }
         for (; newNumber != decimalNumber; base++) {
             for (let i = 0; i < expctNumber.length; i++) {

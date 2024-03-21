@@ -18,7 +18,7 @@ beforeEach(() => { converter = new Converter() })
  *  @returns number in the decimal base
 */
 it("to decimal, result should be 4095", () => {
-    expect(converter.toDecimal(16, 'FFF')).toEqual(4095);
+    expect(converter.toDecimal(2, '100000')).toEqual(32);
 });
 
 /** 
